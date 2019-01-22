@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Train Schedule</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+</head>
+
+<body>
+    <div class="bg">
+
+        <div class="container">
+            <header class="text-center rounded">
+                <h1>Train Schedule</h1>
+                <h4>Don't miss your train!</h4>
+            </header>
+
+            <div class="card">
+                <div class="card-header"><i class="fa fa-train" aria-hidden="true"></i>Train</div>
+                <form class="container form-bg">
+                    <div class="row form-group">
+                        <div class="col">
+                            <label for="formInput"><i class="fa fa-train" aria-hidden="true"></i> Train Name</label>
+                            <input type="text" class="form-control" id="train-name" placeholder="">
+                                </div>
+                        <div class="
+                                col">
+                            <label for="formInput"><i class="fa fa-globe" aria-hidden="true"></i> Destination</label>
+                            <input type="text" class="form-control" id="destination" placeholder="">
+                        </div>
+                        <div class="col">
+                            <label for="formInput"><i class="fa fa-calendar" aria-hidden="true"></i>First Train Time</label>
+                            <input type="text" class="form-control" id="first-train-time" placeholder="">
+                        </div>
+                        <div class="col">
+                            <label for="formInput"><i class="fa fa-hourglass-start" aria-hidden="true"></i>Frequency</label>
+                            <input type="text" class="form-control" id="frequency" placeholder="">
+                        </div>
+                        <button type="submit" class="col btn btn-outline-info" id="add-train">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card">
+                <div class="card-header"><i class="fa fa-calendar" aria-hidden="true"></i>Current Train Schedule</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"><i class="fa fa-train" aria-hidden="true"></i>Train Name</th>
+                            <th scope="col"><i class="fa fa-globe" aria-hidden="true"></i>Destination</th>
+                            <th scope="col"><i class="fa fa-hourglass-start" aria-hidden="true"></i>Frequency (min) </th>
+                            <th scope="col"><i class="fas fa-clock"></i> Next Arrival</th>
+                            <th scope="col"><i class="fa fa-minus-circle" aria-hidden="true"></i> Minuetes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-secondary">
+        <div class="container text-center">
+            <span>© The trains are a lie</span>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+    <script src="./assets/javascript/main.js"></script>
+</body>
+
+</html>
