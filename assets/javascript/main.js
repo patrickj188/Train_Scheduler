@@ -16,17 +16,17 @@ $("#add-train").on("click", function (event) {
 
     var trainName = $("#train-name").val().trim();
     var trainDestination = $("#destination").val().trim();
-    var firstTrainTime = $("#first-train-time").val().trim();
-    var trainFrequency = parseInt($("#frequency").val().trim());
+    var firstTrainTime =  moment($("#first-train-time").val().trim(), "HH:mm").subtract(10, "years").format("X");
+    var trainFrequency = ("#frequency").val().trim();
 
-    var newEmp = {
+    var newTrain = {
         name: trainName,
         destination: trainDestination,
         firstTrainTimeData: firstTrainTime,
         trainFrequencyData: trainFrequency,
     };
 
-    database.ref().push(newEmp);
+    database.ref().push(newTrain);
 
     $("#train-name").val("");
     $("#destination").val("");
@@ -49,35 +49,16 @@ database.ref().on("child_added", function (childSnapshot) {
     console.log(trainFrequency);
     console.log(trainTimeInput);
 
-    var diffTime = moment().diff(moment.unix(trainTimeInput), "minutes");
-    var timeRemainder = moment().diff(moment.unix(trainTimeInput), "minutes") % parseInt(trainFrequency);
-    var minutes = trainFrequency - timeRemainder;
-    var nextTrainArrival = moment().add(minutes, "m").format("hh:mm A");
-    var input;
-    var output;
-    var trainTime;
-
-    input = '13:30'
-
-    today = moment().startOf('day')
-    var hours = parseInt(input.split(':')[0]);
-    var mins = parseInt(input.split(':')[1]);
-    trainTime = today.add(hours, 'hours').add(mins, 'minutes')
-    output = moment().diff(today, 'minutes');
-
-    console.log(output);
-    console.log(nextTrainArrival);
-    console.log(timeRemainder);
-    console.log(minutes);
+    let tRemainder = moment().diff(moment.unix(parseInt(firstTrainTime)), "minutes") % trainFrequency;
+    let tMinutes = trainFrequency - tRemainder;
+    let tArrival = moment().add(tMinutes, "m").format("hh:mm A");
 
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(trainDestination),
         $("<td>").text(trainFrequency),
-        $("<td>").text(nextTrainArrival),
-        $("<td>").text(output),
-        // $("<td>").text(timeRemainder),
-        // $("<td>").text(minutes),
+        $("<td>").text(tArrival),
+        $("<td>").text(tMinutes),
     );
 
     $("#tbody").append(newRow);
