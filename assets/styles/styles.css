@@ -1,0 +1,75 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: 'Oswald', sans-serif;	
+}
+
+.bg {
+	background-image: url('../../assets/images/Train_station.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+header {
+	height: 10rem;
+	color: #fff;
+	background-color: #696D7D;
+	padding-top: 2rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+header h4 {
+	padding-bottom: 2rem;
+}
+
+.card {
+	margin-top: 2rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-header {
+	background-color: #6F9283;
+}
+
+.row {
+	margin-top: 1rem;
+}
+
+.form-bg, table {
+	background-color: rgba(0,0,0,.05);
+}
+
+button {
+	margin-right: 1rem;
+}
+
+.table {
+	margin-bottom: 0;
+}
+
+tbody tr:hover {
+	background-color: rgba(0,0,0,.05);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 2rem;
+  font-size: 0.75rem;
+  color: #fff;
+  background-color: #696D7D;
+}
+
+footer span {
+  padding: 1rem;
+}
