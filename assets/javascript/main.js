@@ -17,7 +17,7 @@ $("#add-train").on("click", function (event) {
     var trainName = $("#train-name").val().trim();
     var trainDestination = $("#destination").val().trim();
     var firstTrainTime =  moment($("#first-train-time").val().trim(), "HH:mm").subtract(10, "years").format("X");
-    var trainFrequency = ("#frequency").val().trim();
+    var trainFrequency = $("#frequency").val();
 
     var newTrain = {
         name: trainName,
@@ -34,6 +34,7 @@ $("#add-train").on("click", function (event) {
     $("#frequency").val("");
 
 });
+
 
 database.ref().on("child_added", function (childSnapshot) {
     console.log(childSnapshot.val());
@@ -53,14 +54,24 @@ database.ref().on("child_added", function (childSnapshot) {
     let tMinutes = trainFrequency - tRemainder;
     let tArrival = moment().add(tMinutes, "m").format("hh:mm A");
 
+
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(trainDestination),
         $("<td>").text(trainFrequency),
         $("<td>").text(tArrival),
         $("<td>").text(tMinutes),
+        $("<td>").append('<i class="fa fa-trash" aria-hidden="true"></i>')
     );
+    
 
     $("#tbody").append(newRow);
+
+    $("body").on("click", ".fa-trash", function() {
+        $(this).closest("tr").remove(); 
+        // database.ref().remove();
+      });
+
+    
 });
 
